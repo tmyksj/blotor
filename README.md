@@ -1,0 +1,2 @@
+# blotor
+a blog generator
