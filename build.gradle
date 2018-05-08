@@ -12,13 +12,17 @@ buildscript {
 group "blotor"
 version "1.0-SNAPSHOT"
 
+apply plugin: "application"
 apply plugin: "kotlin"
+
+mainClassName = "blotor.BlotorKt"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile "org.apache.logging.log4j:log4j-core:2.11.0"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
@@ -27,4 +31,10 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+run {
+    if (project.hasProperty("args")) {
+        args project.args.split("\\s+")
+    }
 }
