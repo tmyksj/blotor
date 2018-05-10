@@ -8,20 +8,12 @@ class Blotor
 
 fun main(args: Array<String>) {
     val logger: Logger = LogManager.getLogger(Blotor::class)
-
-    logger.info("")
-    logger.info("b")
-    logger.info("b    ll       t")
-    logger.info("bbb  ll  oo  ttt  oo  r rr")
-    logger.info("b  b ll o  o  t  o  o rr")
-    logger.info("bbb  ll  oo   tt  oo  r")
-    logger.info("")
-    logger.info("")
+    logger.info("blotor -- a blog generator")
 
     try {
         RootCommand.run(args.toList())
         logger.info("done.")
-    } catch (e: Error) {
+    } catch (e: Throwable) {
         logger.error("fail.")
     }
 }

@@ -1,3 +1,3 @@
 package blotor.exception
 
-class CommandException : RuntimeException()
+class CommandException : Exception()
