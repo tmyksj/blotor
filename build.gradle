@@ -3,6 +3,7 @@ buildscript {
 
     repositories {
         mavenCentral()
+        maven { url "http://kotlin.bintray.com/kotlinx" }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -18,12 +19,14 @@ apply plugin: "kotlin"
 mainClassName = "blotor.BlotorKt"
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
     compile "org.apache.logging.log4j:log4j-core:2.11.0"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.jetbrains.kotlinx:kotlinx-html-jvm:0.6.9"
 }
 
 compileKotlin {
