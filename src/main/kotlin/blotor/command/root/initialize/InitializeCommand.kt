@@ -21,7 +21,7 @@ object InitializeCommand : Command {
         }
 
         FileUtils.copyDirectory(srcDir, destDir)
-        logger.info("done.")
+        logger.info("initialized blog.")
     }
 
 }
