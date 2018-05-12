@@ -1,10 +1,10 @@
 package blotor.command.root
 
 import blotor.command.Command
+import blotor.command.CommandException
 import blotor.command.root.compile.CompileCommand
 import blotor.command.root.generate.GenerateCommand
 import blotor.command.root.initialize.InitializeCommand
-import blotor.exception.CommandException
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
