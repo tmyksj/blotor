@@ -12,8 +12,6 @@ object InitializeCommand : Command {
     private val logger: Logger = LogManager.getLogger(InitializeCommand::class)
 
     override fun run(args: List<String>) {
-        logger.info("initialize blog.")
-
         val srcDir: File = File(ClassLoader.getSystemResource("docs.src").toURI())
         val destDir: File = File("docs.src")
 
