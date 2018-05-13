@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment :: head">
+</head>
+<body>
+<header th:replace="fragment :: header">
+</header>
+<main th:class="'main'">
+    <div th:class="'main__content'">
+        <div th:class="'article-header'">
+            <h1 th:class="'article-header__subject'"
+                th:text="${article.subject}"></h1>
+            <table>
+                <tbody>
+                <tr>
+                    <th th:class="'article-header__meta-th'"
+                        th:text="'created'"></th>
+                    <td th:text="${article.created}"></td>
+                </tr>
+                <tr>
+                    <th th:class="'article-header__meta-th'"
+                        th:text="'tag list'"></th>
+                    <td>
+                        <ul th:class="'tag-list'">
+                            <li th:class="'tag-list__tag'"
+                                th:each="tag : ${article.tagList}">
+                                <a th:href="'tag/' + ${tag.value}"
+                                   th:text="${tag.value}"></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:class="'article-body'"
+             th:utext="${article.body}"></div>
+    </div>
+    <div th:replace="fragment :: main__meta">
+    </div>
+</main>
+<footer th:replace="fragment :: footer">
+</footer>
+</body>
+</html>

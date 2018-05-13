@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta th:charset="'utf-8'">
+    <meta th:content="'width=device-width, initial-scale=1'"
+          th:name="'viewport'">
+    <base th:href="'/blog/'">
+    <title th:text="'my-blog'"></title>
+    <link th:href="'style.css'"
+          th:rel="'stylesheet'">
+    <script th:src="'script.js'"></script>
+</head>
+<body>
+<header th:class="'header'"
+        th:fragment="header">
+    <h1 th:class="'header__logo'">
+        <a th:href="''"
+           th:text="'my-blog'"></a>
+    </h1>
+    <span>
+        <span th:text="'by'"></span>
+        <a th:href="'//github.com/tmyksj/blotor'"
+           th:text="'blotor'"></a>
+    </span>
+</header>
+<main th:class="'main'"
+      th:fragment="main">
+    <div th:class="'main__content'"
+         th:fragment="main__content">
+    </div>
+    <div th:class="'main__meta'"
+         th:fragment="main__meta">
+        <div>
+            <h2 th:text="'recent article list'"></h2>
+            <ul th:class="'recent-article-list'">
+                <li th:each="article : ${recentArticleList}">
+                    <a th:href="'article/' + ${article.uuid}"
+                       th:text="${article.subject}"></a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2 th:text="'tag list'"></h2>
+            <ul th:class="'tag-list'">
+                <li th:class="'tag-list__tag'"
+                    th:each="tag : ${tagList}">
+                    <a th:href="'tag/' + ${tag.value}"
+                       th:text="${tag.value}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer th:class="'footer'"
+        th:fragment="footer">
+    <span th:text="'all rights reserved'"></span>
+</footer>
+</body>
+</html>
