@@ -17,7 +17,11 @@
         <a th:href="''"
            th:text="'my-blog'"></a>
     </h1>
-    <span th:text="'by blotor'"></span>
+    <span>
+        <span th:text="'by'"></span>
+        <a th:href="'//github.com/tmyksj/blotor'"
+           th:text="'blotor'"></a>
+    </span>
 </header>
 <main th:class="'main'"
       th:fragment="main">
