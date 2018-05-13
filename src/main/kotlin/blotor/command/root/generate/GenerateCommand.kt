@@ -15,8 +15,8 @@ object GenerateCommand : Command {
         val uuid: String = UUID.randomUUID().toString()
         val currentTime: LocalDateTime = LocalDateTime.now()
 
-        File("docs.src/article/${uuid}").mkdirs()
-        File("docs.src/article/${uuid}/index.md").writeText(text = buildString {
+        File("docs-src/article/${uuid}").mkdirs()
+        File("docs-src/article/${uuid}/index.md").writeText(text = buildString {
             appendln("created: ${currentTime}")
             appendln("modified: ${currentTime}")
             appendln("subject: hello world")
@@ -25,7 +25,7 @@ object GenerateCommand : Command {
             appendln("# hello world")
         })
 
-        logger.info("generated to docs.src/article/${uuid}")
+        logger.info("generated to docs-src/article/${uuid}")
     }
 
 }

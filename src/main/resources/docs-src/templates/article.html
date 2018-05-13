@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment :: head">
+</head>
+<body>
+<header th:replace="fragment :: header">
+</header>
+<main th:class="'main'">
+    <div th:class="'main__content'">
+        <div>
+            <span th:text="${article.created}"></span>
+            <span>
+                <th:block th:each="tag : ${article.tagList}">
+                    <a th:href="'tag/' + ${tag.value}" th:text="${tag.value}"></a>
+                </th:block>
+            </span>
+        </div>
+        <h2 th:text="${article.subject}"></h2>
+        <div th:utext="${article.body}"></div>
+    </div>
+    <div th:replace="fragment :: main__meta">
+    </div>
+</main>
+<footer th:replace="fragment :: footer">
+</footer>
+</body>
+</html>

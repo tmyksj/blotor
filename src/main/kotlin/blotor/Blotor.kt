@@ -1,5 +1,6 @@
 package blotor
 
+import blotor.command.CommandException
 import blotor.command.root.RootCommand
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -13,7 +14,9 @@ fun main(args: Array<String>) {
     try {
         RootCommand.run(args.toList())
         logger.info("done.")
-    } catch (e: Throwable) {
+    } catch (e: CommandException) {
         logger.error("fail.")
+    } catch (e: Throwable) {
+        logger.error("unexpected exception occurred.", e)
     }
 }

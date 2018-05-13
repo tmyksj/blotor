@@ -2,7 +2,7 @@ package blotor.command.root
 
 import blotor.command.Command
 import blotor.command.CommandException
-import blotor.command.root.compile.CompileCommand
+import blotor.command.root.build.BuildCommand
 import blotor.command.root.generate.GenerateCommand
 import blotor.command.root.initialize.InitializeCommand
 import org.apache.logging.log4j.LogManager
@@ -21,7 +21,7 @@ object RootCommand : Command {
         }
 
         when (args[0]) {
-            "compile" -> CompileCommand.run(args.subList(1, args.size))
+            "build" -> BuildCommand.run(args.subList(1, args.size))
             "generate" -> GenerateCommand.run(args.subList(1, args.size))
             "initialize" -> InitializeCommand.run(args.subList(1, args.size))
         }

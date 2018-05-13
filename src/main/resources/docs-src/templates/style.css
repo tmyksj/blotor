@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 80rem;
+}
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 80rem;
+}
+.main {
+    display: flex;
+    margin: 2rem auto 4rem;
+    max-width: 80rem;
+}
+.main__content {
+    flex-grow: 1;
+}
+.main__meta {
+    min-width: 16rem;
+}
+@media screen and (max-width: 48rem) {
+    .main {
+        flex-direction: column;
+    }
+}
