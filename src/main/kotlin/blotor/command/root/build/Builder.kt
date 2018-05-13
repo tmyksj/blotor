@@ -78,10 +78,11 @@ class Builder(
                 context.setVariable("articleList", articleList)
                 context.setVariable("currentPage", index + 1)
                 context.setVariable("lastPage", chunkedArticleList.size)
+                context.setVariable("pageUrlPrefix", "${prefix}page/")
                 context.setVariable("recentArticleList", recentArticleList)
                 context.setVariable("tagList", tagList)
 
-                File("${buildDir.path}/${prefix}page/${index + 1}/").mkdirs()
+                File("${buildDir.path}/${prefix}page/${index + 1}").mkdirs()
                 File("${buildDir.path}/${prefix}page/${index + 1}/index.html")
                         .writeText(text = templateEngine.process("article-list", context))
             }

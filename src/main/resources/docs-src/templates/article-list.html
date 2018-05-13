@@ -7,18 +7,52 @@
 </header>
 <main th:class="'main'">
     <div th:class="'main__content'">
-        <th:block th:each="article : ${articleList}">
-            <div>
-                <h2>
-                    <a th:href="'article/' + ${article.uuid}" th:text="${article.subject}"></a>
-                </h2>
-                <div>
-                    <th:block th:each="tag : ${article.tagList}">
-                        <a th:href="'tag/' + ${tag.value}" th:text="${tag.value}"></a>
-                    </th:block>
-                </div>
-            </div>
-        </th:block>
+        <div th:class="'article-list'"
+             th:each="article : ${articleList}">
+            <h2 th:class="'article-list__subject'">
+                <a th:href="'article/' + ${article.uuid}"
+                   th:text="${article.subject}"></a>
+            </h2>
+            <ul th:class="'tag-list'">
+                <li th:class="'tag-list__tag'"
+                    th:each="tag : ${article.tagList}">
+                    <a th:href="'tag/' + ${tag.value}"
+                       th:text="${tag.value}"></a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul th:class="'pagination'">
+                <li>
+                    <span th:class="'pagination__page'"
+                          th:if="${currentPage == 1}"
+                          th:text="'<<'"></span>
+                    <a th:class="'pagination__page'"
+                       th:href="${pageUrlPrefix} + '1'"
+                       th:if="${currentPage != 1}"
+                       th:text="'<<'"></a>
+                </li>
+                <li th:each="page : ${#numbers.sequence(currentPage - 2, currentPage + 2)}"
+                    th:if="${1 <= page && page <= lastPage}">
+                    <span th:class="'pagination__page'"
+                          th:if="${currentPage == page}"
+                          th:text="${page}"></span>
+                    <a th:class="'pagination__page'"
+                       th:href="${pageUrlPrefix} + ${page}"
+                       th:if="${currentPage != page}"
+                       th:text="${page}"></a>
+                </li>
+                <li>
+                    <span th:class="'pagination__page'"
+                          th:if="${currentPage == lastPage}"
+                          th:text="'>>'"></span>
+                    <a th:class="'pagination__page'"
+                       th:href="${pageUrlPrefix} + ${lastPage}"
+                       th:if="${currentPage != lastPage}"
+                       th:text="'>>'"></a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div th:replace="fragment :: main__meta">
     </div>

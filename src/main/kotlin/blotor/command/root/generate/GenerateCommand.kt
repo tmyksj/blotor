@@ -20,7 +20,7 @@ object GenerateCommand : Command {
             appendln("created: ${currentTime}")
             appendln("modified: ${currentTime}")
             appendln("subject: hello world")
-            appendln("tag: blog, hello world")
+            appendln("tag: tag1, tag2")
             appendln()
             appendln("# hello world")
         })

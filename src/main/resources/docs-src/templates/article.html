@@ -7,16 +7,34 @@
 </header>
 <main th:class="'main'">
     <div th:class="'main__content'">
-        <div>
-            <span th:text="${article.created}"></span>
-            <span>
-                <th:block th:each="tag : ${article.tagList}">
-                    <a th:href="'tag/' + ${tag.value}" th:text="${tag.value}"></a>
-                </th:block>
-            </span>
+        <div th:class="'article-header'">
+            <h1 th:class="'article-header__subject'"
+                th:text="${article.subject}"></h1>
+            <table>
+                <tbody>
+                <tr>
+                    <th th:class="'article-header__meta-th'"
+                        th:text="'created'"></th>
+                    <td th:text="${article.created}"></td>
+                </tr>
+                <tr>
+                    <th th:class="'article-header__meta-th'"
+                        th:text="'tag list'"></th>
+                    <td>
+                        <ul th:class="'tag-list'">
+                            <li th:class="'tag-list__tag'"
+                                th:each="tag : ${article.tagList}">
+                                <a th:href="'tag/' + ${tag.value}"
+                                   th:text="${tag.value}"></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <h2 th:text="${article.subject}"></h2>
-        <div th:utext="${article.body}"></div>
+        <div th:class="'article-body'"
+             th:utext="${article.body}"></div>
     </div>
     <div th:replace="fragment :: main__meta">
     </div>

@@ -39,6 +39,7 @@ tagList: List<Tag>
 articleList: List<Article>
 currentPage: Int
 lastPage: Int
+pageUrlPrefix: String
 recentArticleList: List<Article>
 tagList: List<Tag>
 ```
