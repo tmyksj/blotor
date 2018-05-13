@@ -173,8 +173,8 @@ class Builder(
                     }
                 }
 
-        articleMutableList.sortBy { it.created }
-        tagMutableMap.values.forEach { (it.articleList as MutableList<Article>).sortBy { it.created } }
+        articleMutableList.sortByDescending { it.created }
+        tagMutableMap.values.forEach { (it.articleList as MutableList<Article>).sortByDescending { it.created } }
 
         articleList = articleMutableList.toList()
         tagList = tagMutableMap.values.sortedBy { it.value }
