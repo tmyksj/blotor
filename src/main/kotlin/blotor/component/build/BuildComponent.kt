@@ -63,7 +63,7 @@ class BuildComponent : Component {
     }
 
     private fun compileArticleList() {
-        val compileList: (list: List<Article>, prefix: String) -> Unit = { list, prefix ->
+        val compileList: (List<Article>, String) -> Unit = { list, prefix ->
             val chunkedArticleList: List<List<Article>> = list.chunked(ApplicationProperty.page)
 
             chunkedArticleList.forEachIndexed { index, articleList ->
