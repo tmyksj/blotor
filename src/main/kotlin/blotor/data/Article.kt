@@ -1,5 +1,6 @@
 package blotor.data
 
+import java.io.File
 import java.time.LocalDateTime
 
 data class Article(
@@ -7,6 +8,5 @@ data class Article(
         val created: LocalDateTime,
         val modified: LocalDateTime,
         val subject: String,
-        val tagList: List<Tag>,
-        val body: String
+        val index: File
 )

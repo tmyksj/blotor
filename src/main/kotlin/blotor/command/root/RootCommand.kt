@@ -13,18 +13,22 @@ object RootCommand : Command {
     private val logger: Logger = LogManager.getLogger(RootCommand::class)
 
     override fun run(args: List<String>) {
-        logger.info("query: " + args.joinToString())
+        logger.info("query: ${args.joinToString()}")
 
         if (args.isEmpty()) {
             logger.error("illegal query.")
             throw CommandException()
         }
 
-        when (args[0]) {
-            "build" -> BuildCommand.run(args.subList(1, args.size))
-            "generate" -> GenerateCommand.run(args.subList(1, args.size))
-            "initialize" -> InitializeCommand.run(args.subList(1, args.size))
-        }
+        (when (args[0]) {
+            "build" -> BuildCommand
+            "generate" -> GenerateCommand
+            "initialize" -> InitializeCommand
+            else -> {
+                logger.error("unknown query.")
+                throw CommandException()
+            }
+        }).run(args.subList(1, args.size))
     }
 
 }

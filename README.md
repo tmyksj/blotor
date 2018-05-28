@@ -18,28 +18,28 @@ a blog generator
 ```
 
 # theme
-## 404.html
-### arguments
+## global attribute list
 ```
-recentArticleList: List<Article>
-tagList: List<Tag>
+ts: TemplateSupport
+```
+
+## 404.html
+### local attribute list
+```
+(none)
 ```
 
 ## article.html
-### arguments
+### local attribute list
 ```
 article: Article
-recentArticleList: List<Article>
-tagList: List<Tag>
 ```
 
 ## article-list.html
-### arguments
+### local attribute list
 ```
 articleList: List<Article>
 currentPage: Int
 lastPage: Int
 pageUrlPrefix: String
-recentArticleList: List<Article>
-tagList: List<Tag>
 ```
