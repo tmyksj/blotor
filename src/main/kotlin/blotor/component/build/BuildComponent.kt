@@ -1,5 +1,6 @@
-package blotor.command.root.build
+package blotor.component.build
 
+import blotor.component.Component
 import blotor.data.Article
 import blotor.data.ArticleStaticFile
 import blotor.data.ArticleTag
@@ -16,9 +17,9 @@ import java.io.File
 import java.time.LocalDateTime
 import java.util.*
 
-class Builder {
+class BuildComponent : Component {
 
-    private val logger: Logger = LogManager.getLogger(Builder::class)
+    private val logger: Logger = LogManager.getLogger(BuildComponent::class)
 
     private lateinit var processTemplate: (String, String, Map<String, Any>) -> Unit
 
@@ -27,7 +28,7 @@ class Builder {
     private lateinit var articleTagList: List<ArticleTag>
     private lateinit var tagList: List<Tag>
 
-    fun build() {
+    override fun run() {
         verify()
         initialize()
         load()

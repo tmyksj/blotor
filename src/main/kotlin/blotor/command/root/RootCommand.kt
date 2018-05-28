@@ -1,7 +1,7 @@
 package blotor.command.root
 
 import blotor.command.Command
-import blotor.command.CommandException
+import blotor.command.delegate
 import blotor.command.root.build.BuildCommand
 import blotor.command.root.generate.GenerateCommand
 import blotor.command.root.initialize.InitializeCommand
@@ -15,20 +15,11 @@ object RootCommand : Command {
     override fun run(args: List<String>) {
         logger.info("query: ${args.joinToString()}")
 
-        if (args.isEmpty()) {
-            logger.error("illegal query.")
-            throw CommandException()
-        }
-
-        (when (args[0]) {
-            "build" -> BuildCommand
-            "generate" -> GenerateCommand
-            "initialize" -> InitializeCommand
-            else -> {
-                logger.error("unknown query.")
-                throw CommandException()
-            }
-        }).run(args.subList(1, args.size))
+        delegate(args, mapOf(
+                "build" to BuildCommand,
+                "generate" to GenerateCommand,
+                "initialize" to InitializeCommand
+        ))
     }
 
 }
