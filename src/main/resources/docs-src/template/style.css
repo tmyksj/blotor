@@ -81,7 +81,7 @@ a {
 }
 
 .main__meta {
-    width: 16rem;
+    min-width: 16rem;
 }
 
 .not-found {
@@ -120,11 +120,21 @@ a {
 }
 
 @media screen and (max-width: 48rem) {
+    .article-body {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .article-header {
+        border-left: none;
+        padding-left: 0;
+    }
+
     .main {
         flex-direction: column;
     }
 
     .main__meta {
-        width: auto;
+        min-width: auto;
     }
 }
