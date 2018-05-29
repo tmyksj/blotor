@@ -11,7 +11,7 @@ fun delegate(args: List<String>, commandMap: Map<String?, Command>) {
     val command: Command? = commandMap[args.getOrNull(0)]
 
     if (command == null) {
-        logger.error("illegal query.")
+        logger.error("command not found.")
         throw CommandException()
     }
 
