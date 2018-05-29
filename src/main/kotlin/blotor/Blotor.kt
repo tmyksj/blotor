@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     logger.info("blotor -- a blog generator")
 
     try {
-        RootCommand.run(args.toList())
+        RootCommand().run(args.toList())
         logger.info("done.")
     } catch (e: CommandException) {
         logger.error("fail.")

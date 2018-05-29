@@ -33,7 +33,7 @@
         <div>
             <h2 th:text="'recent article list'"></h2>
             <ul th:class="'recent-article-list'">
-                <li th:each="article : ${recentArticleList}">
+                <li th:each="article : ${ts.recentArticleList()}">
                     <a th:href="'article/' + ${article.uuid}"
                        th:text="${article.subject}"></a>
                 </li>
@@ -43,7 +43,7 @@
             <h2 th:text="'tag list'"></h2>
             <ul th:class="'tag-list'">
                 <li th:class="'tag-list__tag'"
-                    th:each="tag : ${tagList}">
+                    th:each="tag : ${ts.tagList()}">
                     <a th:href="'tag/' + ${tag.value}"
                        th:text="${tag.value}"></a>
                 </li>

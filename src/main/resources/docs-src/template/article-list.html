@@ -15,7 +15,7 @@
             </h2>
             <ul th:class="'tag-list'">
                 <li th:class="'tag-list__tag'"
-                    th:each="tag : ${article.tagList}">
+                    th:each="tag : ${ts.tagList(article)}">
                     <a th:href="'tag/' + ${tag.value}"
                        th:text="${tag.value}"></a>
                 </li>

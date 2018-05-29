@@ -2,40 +2,50 @@ body {
     margin: 0.5rem 1rem;
     overflow-y: scroll;
 }
+
 h1 {
     font-size: 2rem;
 }
+
 h2 {
     font-size: 1.5rem;
 }
+
 a {
     color: #0D47A1;
 }
+
 .article-body {
     border-left: medium solid transparent;
     margin-top: 1rem;
     padding-left: 0.5rem;
 }
+
 .article-header {
     border-left: medium solid transparent;
     padding-left: 0.5rem;
 }
+
 .article-header__meta-th {
     font-weight: normal;
     text-align: left;
 }
+
 .article-header__subject {
     font-size: 1.5rem;
     margin: 1rem 0;
 }
+
 .article-list {
     border-left: medium solid #424242;
     margin: 1rem 0;
     padding-left: 0.5rem;
 }
+
 .article-list__subject {
     margin: 0;
 }
+
 .footer {
     border-top: thin solid #424242;
     display: flex;
@@ -44,6 +54,7 @@ a {
     max-width: 80rem;
     padding: 1rem 0 0.5rem;
 }
+
 .header {
     align-items: center;
     border-bottom: thin solid #424242;
@@ -52,25 +63,31 @@ a {
     margin: 0 auto;
     max-width: 80rem;
 }
+
 .header__logo {
     border-left: medium solid #424242;
     margin: 1rem 0;
     padding-left: 0.5rem;
 }
+
 .main {
     display: flex;
     margin: 1rem auto 2rem;
     max-width: 80rem;
 }
+
 .main__content {
     flex-grow: 1;
 }
+
 .main__meta {
-    width: 16rem;
+    min-width: 16rem;
 }
+
 .not-found {
     text-align: center;
 }
+
 .pagination {
     display: flex;
     flex-wrap: wrap;
@@ -79,29 +96,45 @@ a {
     margin: 0;
     padding: 0;
 }
+
 .pagination__page {
     padding: 1rem 0.8rem;
     margin: 0 0.2rem;
 }
+
 .recent-article-list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .tag-list {
     display: inline-block;
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .tag-list__tag {
     display: inline-block;
 }
+
 @media screen and (max-width: 48rem) {
+    .article-body {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .article-header {
+        border-left: none;
+        padding-left: 0;
+    }
+
     .main {
         flex-direction: column;
     }
+
     .main__meta {
-        width: auto;
+        min-width: auto;
     }
 }

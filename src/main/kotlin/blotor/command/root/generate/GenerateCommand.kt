@@ -7,7 +7,7 @@ import java.io.File
 import java.time.LocalDateTime
 import java.util.*
 
-object GenerateCommand : Command {
+class GenerateCommand : Command {
 
     private val logger: Logger = LogManager.getLogger(GenerateCommand::class)
 
@@ -16,13 +16,13 @@ object GenerateCommand : Command {
         val currentTime: LocalDateTime = LocalDateTime.now()
 
         File("docs-src/article/${uuid}").mkdirs()
-        File("docs-src/article/${uuid}/index.md").writeText(text = buildString {
+        File("docs-src/article/${uuid}/index.html").writeText(text = buildString {
             appendln("created: ${currentTime}")
             appendln("modified: ${currentTime}")
             appendln("subject: hello world")
             appendln("tag: tag1, tag2")
             appendln()
-            appendln("# hello world")
+            appendln("<h1>hello world</h1>")
         })
 
         logger.info("generated to docs-src/article/${uuid}")

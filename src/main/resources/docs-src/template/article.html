@@ -23,7 +23,7 @@
                     <td>
                         <ul th:class="'tag-list'">
                             <li th:class="'tag-list__tag'"
-                                th:each="tag : ${article.tagList}">
+                                th:each="tag : ${ts.tagList(article)}">
                                 <a th:href="'tag/' + ${tag.value}"
                                    th:text="${tag.value}"></a>
                             </li>
@@ -34,7 +34,7 @@
             </table>
         </div>
         <div th:class="'article-body'"
-             th:utext="${article.body}"></div>
+             th:utext="${ts.readArticleIndex(article)}"></div>
     </div>
     <div th:replace="fragment :: main__meta">
     </div>
