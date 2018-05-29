@@ -2,18 +2,33 @@
 a blog generator
 
 # how to
-## initialize blog
+## install blotor and initialize blog
 ```
+# clone this repository
+git clone git@github.com:tmyksj/blotor.git
+
+# change directory
+cd blotor
+
+# install blotor to your blog repository (or directory)
+./gradlew run -Pargs="install [install-path]"
+
+# change directory
+cd [install-path]
+
+# initialize blog
 ./gradlew run -Pargs=initialize
 ```
 
-## generate new article
+## add new article and build
 ```
+# generate article source
 ./gradlew run -Pargs=generate
-```
 
-## build blog
-```
+# write your article to
+#   article/{uuid}/index.html
+
+# build blog
 ./gradlew run -Pargs=build
 ```
 
