@@ -8,7 +8,7 @@ import blotor.command.root.initialize.InitializeCommand
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
-object RootCommand : Command {
+class RootCommand : Command {
 
     private val logger: Logger = LogManager.getLogger(RootCommand::class)
 
@@ -16,9 +16,9 @@ object RootCommand : Command {
         logger.info("query: ${args.joinToString()}")
 
         delegate(args, mapOf(
-                "build" to BuildCommand,
-                "generate" to GenerateCommand,
-                "initialize" to InitializeCommand
+                "build" to BuildCommand(),
+                "generate" to GenerateCommand(),
+                "initialize" to InitializeCommand()
         ))
     }
 
